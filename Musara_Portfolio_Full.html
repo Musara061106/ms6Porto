@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Musara Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      width: 95%;
+      max-width: 800px;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .socials a {
+      margin: 0 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #333;
+      font-size: 14px;
+    }
+    .socials img {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .item {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .item:hover {
+      transform: scale(1.05);
+    }
+    .item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .caption {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      display: none;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+    .lightbox.show {
+      display: flex;
+    }
+    .close-btn {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="profile">
+      <img src="MusaraPP.webp" alt="Foto Profil" />
+      <h1>Musara</h1>
+      <div class="socials">
+        <a href="https://instagram.com/musara061106" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="IG" />Instagram
+        </a>
+        <a href="https://facebook.com/musara" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="FB" />Facebook
+        </a>
+        <a href="https://X.com/musara" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X" />X
+        </a>
+      </div>
+      <p>Desainer Grafis | Digital Artist | Kreator Visual</p>
+      <p><em>Orang yang membuat design sebagai hobi, memang memerlukan waktu lama より多くのインスピレーションと努力が必要です。</em></p>
+    </div>
+    <div class="gallery">
+
+      <div class="item" onclick="openLightbox('Ba-Dum Fiery Wishing Star@2x.webp')">
+        <img src="Ba-Dum Fiery Wishing Star@2x.webp" alt="Karya 1">
+        <div class="caption">Kiana Kaslana</div>
+      </div>
+    
+      <div class="item" onclick="openLightbox('Buro MuseDash @tesse_rct.webp')">
+        <img src="Buro MuseDash @tesse_rct.webp" alt="Karya 2">
+        <div class="caption">Buro MuseDash</div>
+      </div>
+    
+      <div class="item" onclick="openLightbox('Collab Kanade PJSK.webp')">
+        <img src="Collab Kanade PJSK.webp" alt="Karya 3">
+        <div class="caption">Kanade</div>
+      </div>
+    
+      <div class="item" onclick="openLightbox('Encore Whutering Waves Compress.webp')">
+        <img src="Encore Whutering Waves Compress.webp" alt="Karya 4">
+        <div class="caption">Encore</div>
+      </div>
+    
+      <div class="item" onclick="openLightbox('Perlica Arknights Endfield Compressed - Salin.webp')">
+        <img src="Perlica Arknights Endfield Compressed - Salin.webp" alt="Karya 5">
+        <div class="caption">Perlica</div>
+      </div>
+    
+      <div class="item" onclick="openLightbox('Phoebe Wuthering Waves.webp')">
+        <img src="Phoebe Wuthering Waves.webp" alt="Karya 6">
+        <div class="caption">Phoebe</div>
+      </div>
+    
+      <div class="item" onclick="openLightbox('Regulus Reverse 1999@3x - Salin.webp')">
+        <img src="Regulus Reverse 1999@3x - Salin.webp" alt="Karya 7">
+        <div class="caption">Regulus</div>
+      </div>
+    
+      <div class="item" onclick="openLightbox('Robin 4 X 5.webp')">
+        <img src="Robin 4 X 5.webp" alt="Karya 8">
+        <div class="caption">Robin</div>
+      </div>
+    
+      <div class="item" onclick="openLightbox('Ukanami Yuzuha.webp')">
+        <img src="Ukanami Yuzuha.webp" alt="Karya 9">
+        <div class="caption">Ukinami Yuzuha</div>
+      </div>
+    
+      <div class="item" onclick="openLightbox('Wakaba Hinata.webp')">
+        <img src="Wakaba Hinata.webp" alt="Karya 10">
+        <div class="caption">Wakaba Hinata</div>
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="close-btn" onclick="closeLightbox()">×</span>
+    <img id="lightbox-img" src="" alt="Preview">
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById("lightbox-img").src = src;
+      document.getElementById("lightbox").classList.add("show");
+    }
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("show");
+    }
+  </script>
+</body>
+</html>
